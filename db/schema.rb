@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170205182027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "task_lists", force: :cascade do |t|
+    t.text    "name"
+    t.integer "user_id"
+    t.boolean "public"
+    t.index ["user_id"], name: "index_task_lists_on_user_id", using: :btree
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.text "name"
+    t.text "email"
+    t.text "password"
+  end
 
 end
