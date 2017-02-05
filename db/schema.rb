@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205182027) do
+ActiveRecord::Schema.define(version: 20170205185746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170205182027) do
   create_table "task_lists", force: :cascade do |t|
     t.text    "name"
     t.integer "user_id"
-    t.boolean "public"
+    t.boolean "public",  default: false
     t.index ["user_id"], name: "index_task_lists_on_user_id", using: :btree
   end
 
