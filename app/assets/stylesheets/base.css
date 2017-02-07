@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  background: #9c2a2a;
+}
+
+nav ul {
+  text-align: center;
+  background-color: #cfc089;
+  margin: 0;
+  padding: 1em 1em 1em 1em;
+}
+
+nav ul li {
+
+  display: inline;
+  padding-right: 1em;
+}
+
+nav ul li:last-child {
+  padding-right: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #AE2225;
+  font-family: "Montserrat Regular", sans-serif;
+  font-size: 1em;
+}
+
+footer {
+  color: #29160E;
+  background-color: #cfc089;
+  text-align: center;
+  padding: 2em;
+}
