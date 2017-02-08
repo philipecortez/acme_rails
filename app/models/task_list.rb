@@ -4,4 +4,7 @@ class TaskList < ActiveRecord::Base
 
   belongs_to :user
   has_many :tasks
+
+  scope :from_user, lambda { |user| where(user: user) }
+  scope :publics, lambda { where(public: true)}
 end
