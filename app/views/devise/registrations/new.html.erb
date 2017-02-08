@@ -1,8 +1,11 @@
 <main class="container">
   <div class="row">
-    <div class="ften columns">
+    <div class="twelve columns">
       <div class="form">
-        <h2>Sign up</h2>
+        <div class="app-logo">
+          <h1>Acme</h1>
+        </div>
+        <h2>Sign up into TO-DO lists</h2>
 
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>

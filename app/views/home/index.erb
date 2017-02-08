@@ -1,7 +1,22 @@
+<header>
+  <nav>
+    <ul>
+      <li>
+        <a class='not-change-color' href="#">Task Lists</a>
+      </li>
+      <li>
+        <%= link_to "Sign In", new_user_session_path, class: 'not-change-color'%>
+      </li>
+      <li>
+        <%= link_to "Sign Up", new_user_registration_path, class: 'not-change-color'%>
+      </li>
+    </ul>
+  </nav>
+</header>
 <main class="app-logo">
 	<h1>Acme</h1>
+  <h2>TO-DO lists</h2>
   <div class="anvil">
-    <h2>TO-DO lists</h2>
   </div>
 </main>
 <section class="about">
