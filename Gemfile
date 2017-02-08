@@ -39,9 +39,14 @@ gem 'simple_form'
 
 gem 'devise'
 
+group :test do
+  gem 'database_cleaner'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry'
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
 
