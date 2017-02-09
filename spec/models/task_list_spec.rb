@@ -57,12 +57,12 @@ RSpec.describe TaskList, type: :model do
   end
 
   context 'is not valid' do
-    it 'is not valid without a name' do
+    it 'without a name' do
       subject.name = nil
       expect(subject).to_not be_valid
     end
 
-    it 'is not valid without a user' do
+    it 'without a user' do
       subject.user = nil
       expect(subject).to_not be_valid
     end
