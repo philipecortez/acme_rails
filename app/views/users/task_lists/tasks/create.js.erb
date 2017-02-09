@@ -1,0 +1,10 @@
+$(':input','#new_task')
+ .not(':button, :submit, :reset, :hidden')
+ .val('')
+ .removeAttr('checked')
+
+$('.list-tasks').append(
+  "<%= j render partial: 'task', locals: {task: @task } %>"
+);
+
+$('#new_task').find('input[type=text]').focus();

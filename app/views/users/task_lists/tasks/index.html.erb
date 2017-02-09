@@ -1,0 +1,29 @@
+<main class="container">
+  <div class="row">
+    <div class="twelve columns">
+      <div class="list-tasks">
+          <h1>
+            <%= @task_list.name %>
+          </h1>
+          <%= simple_form_for(@task, url: user_task_list_tasks_path(current_user, @task_list), remote: true) do |f| %> 
+            <%= f.error_notification %>
+            <div class="row">
+              <div class="form-inputs task-form">
+                <div class="eleven columns">
+                  <%= f.input :description, required: false, as: :string, label: false, placeholder: 'Enter your task here and press enter when finished' %>
+                  <%= f.input :task_list_id, as: :hidden, input_html: { value: @task_list.id } %>
+                </div>
+                <div class="one column">
+                  <%= f.input :completed, label: false %>
+                </div>
+              </div>
+            </div>
+
+          <% end %>
+          <% @tasks.each do |task| %>
+            <%= render partial: 'task', locals: { task: task } %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</main>

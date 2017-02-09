@@ -1,0 +1,20 @@
+.list-tasks {
+  border: 2px solid  #cfc089;
+  background: #cfc089;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 7em auto 7em auto;
+  font-family: "Acme Regular", sans-serif;
+}
+
+.list-tasks h1 {
+  text-align: center;
+}
+
+.task-form input[type=text] {
+  background-color: #cfc089;
+  border: 0;
+  border-bottom: 1px solid;
+  border-radius: 0em;
+  width: 100%;
+}

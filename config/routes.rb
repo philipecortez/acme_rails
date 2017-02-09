@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :users, only: [:show, :update, :destroy] do
-    resources :task_lists, controller: 'users/task_lists'
+    resources :task_lists, controller: 'users/task_lists' do
+      resources :tasks, controller: 'users/task_lists/tasks', only: [:index, :update, :create, :destroy]
+    end
   end
 
   #public task lists
