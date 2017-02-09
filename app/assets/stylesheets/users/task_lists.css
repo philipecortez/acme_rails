@@ -21,6 +21,10 @@
   background-color: #9c2a2a;
 }
 
+#new-task {
+  background-color: #62605a;
+}
+
 .user-lists .button:hover, .user-lists input[type=submit]:hover {
   color: #cfc089;
   background-color: #9c2a2a;
