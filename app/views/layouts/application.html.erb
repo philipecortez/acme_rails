@@ -7,12 +7,22 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <% if user_signed_in? %>
+      <%= render partial: 'layouts/user_nav' %>
+    <% else %>
+      <%= render partial: 'layouts/visitant_nav' %>
+    <% end %>
     <% if flash.present?%>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     <% end %>
+
+    <%= yield %>
+
+    <!-- <footer>
+        &reg; Acme Anvil Corp. All rights... and lefts too reserved!
+    </footer> -->
+
   </body>
 </html>
