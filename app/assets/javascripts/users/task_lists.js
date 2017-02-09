@@ -1,9 +1,9 @@
 $(document).ready(function(){
-  $(".user-lists .update-public").click(function(){
+  $(document).on('click', '.user-lists .update-public', function(){
     debugger;
-    var task_id = $(this).closest("tr").data("id");
-    var user_id = $(this).closest("tr").data("userId");
-    var public = !$(this).closest("tr").data("public"); 
+    var task_id = $(this).closest('tr').data('id');
+    var user_id = $(this).closest('tr').data('userId');
+    var public = !$(this).closest('tr').data('public'); 
     
     $.ajax({
       url: Routes.user_task_list_path(user_id,task_id),
