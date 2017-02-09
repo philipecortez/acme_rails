@@ -1,0 +1,20 @@
+<main class="app-logo">
+	<h1>Acme</h1>
+  <h2>TO-DO lists</h2>
+  <div class="anvil">
+  </div>
+</main>
+<section class="about">
+	<article>
+		<h3>Need to catch a Roadrunner?</h3>
+		<div>
+			<%= image_tag "roadrunner.png"%>
+			<p>
+				Our brand new todo list app will keep you organized and will increase your chances,
+				dont lose your time and <%= link_to "Sign Up", new_user_session_path  %> in our app, if you are in doubt you can 
+				<%= link_to "Browse the public todo lists", task_lists_path %> and get some inspiration!
+			</p>
+		</div>
+	</article>
+	<hr>
+</section>
