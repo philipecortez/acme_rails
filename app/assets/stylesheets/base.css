@@ -37,3 +37,11 @@ footer {
 .not-change-color:hover  {
   color: inherit;
 }
+
+button.icon {
+  border: none;
+  padding-top: 0.6em;
+  text-decoration: none;
+  color: #62605a;
+  cursor: pointer;
+}
