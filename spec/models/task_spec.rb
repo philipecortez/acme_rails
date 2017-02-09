@@ -4,7 +4,7 @@ RSpec.describe Task do
 
   let(:task_list) { TaskList.create(name: 'Tarefas do dia', user: user) }
 
-  subject { Task.create(description: "Acme global domination", task_list: task_list) }
+  subject! { Task.create(description: "Acme global domination", task_list: task_list) }
 
   it 'has a description' do
     expect(subject.description).to eq("Acme global domination")
@@ -17,6 +17,21 @@ RSpec.describe Task do
   it 'can be completed' do
     subject.completed = true
     expect(subject.completed).to be_truthy
+  end
+
+  context '.from_task_list' do
+    before(:each) do
+      @another_task_list = TaskList.create(name: 'Tarefas do dia 2', user: user)
+      @another_task = Task.create(description: "Acme global domination", task_list: @another_task_list)
+    end
+
+    it 'returns only tasks from a specified task list' do
+      expect(Task.from_task_list(@another_task_list.id).pluck(:task_list_id)).to all(eq @another_task_list.id)
+    end
+
+    it 'returns all tasks from a specified task list' do
+      expect(Task.from_task_list(@another_task_list.id)).to eq(@another_task_list.tasks)
+    end
   end
 
   context 'validations' do
