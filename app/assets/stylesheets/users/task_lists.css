@@ -1,0 +1,41 @@
+.user-lists {
+  border: 2px solid  #cfc089;
+  background: #cfc089;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 7em auto 7em auto;
+  font-family: "Acme Regular", sans-serif;
+  text-align: center;
+}
+
+.user-lists .nothing-here {
+  font-size: 4em;
+}
+
+.user-lists .instruction {
+  font-size: 1.5em;
+}
+
+.user-lists .button, .user-lists input[type=submit] {
+  color: #cfc089;
+  background-color: #9c2a2a;
+}
+
+.user-lists .button:hover, .user-lists input[type=submit]:hover {
+  color: #cfc089;
+  background-color: #9c2a2a;
+}
+
+
+.user-lists h1 {
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.user-lists .form {
+  color: #29160E;
+  border: none;
+  text-align: initial;
+  margin-top: 0.5em;
+}
