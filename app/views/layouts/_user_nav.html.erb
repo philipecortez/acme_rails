@@ -5,7 +5,7 @@
         <a class='not-change-color' href="#">Profile</a>
       </li>
       <li>
-        <%= link_to "My lists", user_task_lists_path, class: 'not-change-color'%>
+        <%= link_to "My lists", user_task_lists_path(current_user), class: 'not-change-color'%>
       </li>
       <li>
         <%= link_to "Browse lists", "#", class: 'not-change-color'%>

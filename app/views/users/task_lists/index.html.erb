@@ -8,16 +8,20 @@
           </h1>
           <%= link_to "Create One!", new_user_task_list_path, class: "button" %>
         <% else %>
+          <%= link_to new_user_task_list_path(current_user), class: 'button u-pull-right', id: 'new-task' do %>
+            <span>New</span>
+            <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+          <% end %>
           <h1>
             TO-DO lists
           </h1>
-          <table id="user-lists" class="u-full-width">
+          <table class="u-full-width">
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Public</th>
                 <th>Favorite</th>
-                <th></th>
+                <th span="2"></th>
               </tr>
             </thead>
             <tbody>
@@ -34,18 +38,20 @@
                       <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
                     <% end %>
                   </td>
-                  <td span="2">
+                  <td>
                     <%= link_to(user_task_list_path(id: task_list.id), class: 'button', remote: true, method: :delete) do %>
                       <span>delete</span>
                       <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                     <% end %>
-                    
+                     <%= link_to(user_task_list_tasks_path(current_user.id, task_list.id), class: 'button') do %>
+                      <span>tasks</span>
+                      <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+                    <% end %>
                   </td>
                 </tr>
               <% end %>
             </tbody>
           </table>
-
         <% end %> 
       </div>
     </div>
