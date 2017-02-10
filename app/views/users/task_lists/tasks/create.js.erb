@@ -1,7 +1,6 @@
 $(':input','#new_task')
  .not(':button, :submit, :reset, :hidden')
- .val('')
- .removeAttr('checked')
+ .val('');
 
 $('.list-tasks').append(
   "<%= j render partial: 'task', locals: {task: @task } %>"

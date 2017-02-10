@@ -1,10 +1,12 @@
 <div class="row">
-  <div class="form-inputs task-form" data-id="<%= task.id %>">
-    <div class="eleven columns created-task">
-      <%= text_field_tag 'task[description]', task.description %></p>
+  <div class="form-inputs task-form" data-completed="<%= task.completed %>" data-task-list-id="<%= task.task_list_id %>" data-user-id="<%= current_user.id %>" data-id="<%= task.id %>">
+    <div class="eleven columns task-desc">
+      <%= text_field_tag 'task[description]', task.description, class: set_class_for_attr_completed(task) %></p>
     </div>
-    <div class="one column created-task">
-      <%= check_box_tag 'task[completed]', task.completed, task.completed %>
+    <div class="one column">
+      <%= link_to(user_task_list_task_path(current_user.id, task.task_list.id, task.id), class: 'icon', remote: true, method: :delete) do %>
+        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+      <% end %>
     </div>
   </div>
 </div>

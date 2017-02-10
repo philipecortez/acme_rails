@@ -18,3 +18,7 @@
   border-radius: 0em;
   width: 100%;
 }
+
+.line-through {
+  text-decoration: line-through;
+}

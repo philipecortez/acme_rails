@@ -9,12 +9,9 @@
             <%= f.error_notification %>
             <div class="row">
               <div class="form-inputs task-form">
-                <div class="eleven columns">
+                <div class="twelve columns">
                   <%= f.input :description, required: false, as: :string, label: false, placeholder: 'Enter your task here and press enter when finished' %>
                   <%= f.input :task_list_id, as: :hidden, input_html: { value: @task_list.id } %>
-                </div>
-                <div class="one column">
-                  <%= f.input :completed, label: false %>
                 </div>
               </div>
             </div>

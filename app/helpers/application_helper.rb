@@ -6,4 +6,12 @@ module ApplicationHelper
       'fa fa-square-o fa-2x'
     end
   end
+
+  def set_class_for_attr_completed(task)
+    if task.completed?
+      'line-through'
+    else
+      ''
+    end
+  end
 end

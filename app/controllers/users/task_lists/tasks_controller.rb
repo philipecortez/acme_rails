@@ -6,13 +6,18 @@ class Users::TaskLists::TasksController < ApplicationController
   end
 
   def create
-    binding.pry
     @task = Task.create(params[:task].permit!)
   end
 
   def update
+    @task = Task.find(params[:id])
+    @task.update_attributes!(params[:task].permit!)
+    render json: @task
   end
 
   def destroy
+    binding.pry
+    @id = params[:id]
+    Task.find(@id).destroy
   end
 end
