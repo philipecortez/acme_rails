@@ -1,7 +1,7 @@
 class Users::TaskLists::TasksController < ApplicationController
   def index
     @task_list = TaskList.find(params[:task_list_id])
-    @tasks = @task_list.tasks
+    @tasks = @task_list.tasks.sort
     @task = Task.new
   end
 
@@ -16,7 +16,6 @@ class Users::TaskLists::TasksController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @id = params[:id]
     Task.find(@id).destroy
   end
