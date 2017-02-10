@@ -43,7 +43,9 @@ RSpec.describe User, type: :model do
       expect(User.reflect_on_association(:task_lists).macro).to eq(:has_many)
     end
 
-    
+    it 'has many favorited task lists' do
+      expect(User.reflect_on_association(:favorited_task_lists).macro).to eq(:has_many)
+    end
   end
 
 end
