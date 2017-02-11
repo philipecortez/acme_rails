@@ -1,4 +1,5 @@
 class Users::TaskLists::TasksController < ApplicationController
+  before_action :authenticate_user!
   def index
     @task_list = TaskList.find(params[:task_list_id])
     @tasks = @task_list.tasks.sort

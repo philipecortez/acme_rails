@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe TaskList, type: :model do
 
-  let! (:user) { User.create(name: 'Philipe', email: 'philipesousacortez@gmail.com', password: 'acme123') }
+  let (:user) { User.create(name: 'Philipe', email: 'philipesousacortez@gmail.com', password: 'acme123') }
   
-  subject! { TaskList.create(name: 'Tarefas do dia', user: user) }
+  subject { TaskList.create(name: 'Tarefas do dia', user: user) }
 
   it 'has a name' do
     expect(subject.name).to eq('Tarefas do dia')
@@ -19,27 +19,48 @@ RSpec.describe TaskList, type: :model do
     expect(subject.public).to be_truthy
   end
 
-
-
-  context 'favorite' do
-
-    before(:each) do
-      another_user = User.create(name: 'John', email: 'john@doe.com', password: 'acme123')
-      TaskList.create(name: 'Tarefas do dia 2', user: @another_user)
-    end
-
-    it 'can be favorited' do
-      subject.favorite(user.id)
+  describe '#bookmark' do
+    it 'add the task list to the user favorited task lists' do
+      subject.bookmark(user.id)
       expect(user.favorited_task_lists).to include(subject)
     end
+  end
 
-    it 'can be unfavorited' do
-      subject.unfavorite(user.id)
+  describe '#unbookmark' do
+    it 'remove the task list from user favorited task lists' do
+      subject.unbookmark(user.id)
       expect(user.favorited_task_lists).to_not include(subject)
     end
-
-
   end
+  
+  describe '#is_bookmarked_by?' do
+
+    it 'retruns true for task lists bookmarked by user' do
+      subject.bookmark(user.id)
+      expect(subject.is_bookmarked_by?(user.id)).to be_truthy
+    end
+
+    it 'returns false for task lists not bookmarked by user' do
+      subject.unbookmark(user.id)
+      expect(subject.is_bookmarked_by?(user.id)).to be_falsy
+    end
+  end
+
+
+  describe "#toggle_bookmark_for" do
+
+    it 'bookmark a unbookmarked task list' do
+      subject.toggle_bookmark_for(user.id)
+      expect(user.favorited_task_lists).to include(subject) 
+    end
+
+    it 'unbookmark a bookmarked task list' do
+      subject.bookmark(user.id)
+      subject.toggle_bookmark_for(user.id)
+      expect(user.favorited_task_lists).to_not include(subject)
+    end
+  end
+
 
   describe '.from_user' do
     

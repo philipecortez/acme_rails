@@ -6,10 +6,17 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :update, :destroy] do
     resources :task_lists, controller: 'users/task_lists' do
+      member do
+        patch 'toggle_bookmark'
+      end
       resources :tasks, controller: 'users/task_lists/tasks', only: [:index, :update, :create, :destroy]
     end
   end
 
   #public task lists
-  resources :task_lists, only: [:index, :show]
+  resources :public_task_lists, only: [:index, :show] do
+    member do
+      patch 'toggle_bookmark'
+    end
+  end
 end

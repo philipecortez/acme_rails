@@ -1,8 +1,11 @@
 <main class="container">
+  <div class="app-logo">
+    <h1><%=link_to "Acme", root_path, class: 'not-change-color' %></h1>
+  </div>
   <div class="row">
     <div class="twelve columns">
       <div class="user-lists">
-          <h1>TO-DO Lists</h1>
+          <h2>TO-DO Lists</h2>
         <div class="form">
           <%= simple_form_for([:user, @task_list], remote: true) do |f| %>
             <div class="form-inputs">
@@ -16,6 +19,7 @@
             </div>
           <% end %>
 
+          <%= link_to 'Back', user_task_lists_path(current_user.id), class: 'back-icon u-pull-left' %>
         </div> 
       </div>
     </div>

@@ -4,7 +4,7 @@
       <%= text_field_tag 'task[description]', task.description, class: set_class_for_attr_completed(task) %></p>
     </div>
     <div class="one column">
-      <%= link_to(user_task_list_task_path(current_user.id, task.task_list.id, task.id), class: 'icon', remote: true, method: :delete) do %>
+      <%= link_to(user_task_list_task_path(current_user.id, task.task_list.id, task.id), class: 'icon trash', remote: true, method: :delete) do %>
         <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
       <% end %>
     </div>

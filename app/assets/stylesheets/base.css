@@ -46,6 +46,16 @@ button.icon {
   cursor: pointer;
 }
 
+.container a {
+  color: #cfc089;
+  text-decoration: none;
+}
+.container .back-icon {
+  color: #29160E;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #6b6a68;
 }

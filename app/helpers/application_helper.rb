@@ -14,4 +14,13 @@ module ApplicationHelper
       ''
     end
   end
+
+  def set_class_for_attr_bookmarked(task_list)
+    if task_list.is_bookmarked_by?(current_user)
+      'fa fa-star fa-2x'
+    else
+      'fa fa-star-o fa-2x'
+    end
+  end
+
 end

@@ -1,0 +1,51 @@
+<main class="container">
+    <div class="app-logo">
+      <h1><%=link_to "Acme", root_path, class: 'not-change-color' %></h1>
+    </div>
+  <div class="row">
+    <div class="twelve columns">
+      <div class="user-lists">
+        <% if !@task_lists.present? %>
+          <h2 class="nothing-here">
+            There's no public task lists in the system =(
+          </h2>
+        <% else %>
+          <h2>
+            Public TO-DO lists
+          </h2>
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Favorite</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @task_lists.each do |task_list| %>
+                <tr data-id="<%= task_list.id %>" data-user-id="<%= task_list.user_id %>" data-public="<%= task_list.public %>">
+                  <td><%= task_list.name %></td>
+                  <td>
+                    <%= button_tag class: "icon pub-fav" do %>
+                      <i class="<%= set_class_for_attr_bookmarked(task_list) %>" aria-hidden="true"></i>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to(public_task_list_path(task_list.id), class: 'button') do %>
+                      <span>tasks</span>
+                      <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+         
+            <p>You can click in the star icon to favorite/unfavorite the task lists</p>
+            <p>Click in the button tasks to see the tasks of a task list</p>
+          
+        <% end %> 
+      </div>
+    </div>
+  </div>
+</main>

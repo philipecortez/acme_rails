@@ -1,0 +1,24 @@
+<main class="container">
+  <div class="app-logo">
+    <h1><%=link_to "Acme", root_path, class: 'not-change-color' %></h1>
+  </div>
+  <div class="row">
+    <div class="twelve columns">
+      <div class="list-tasks">
+          <%= link_to 'Back', public_task_lists_path, class: 'back-icon u-pull-right' %>
+          <h2>
+            <%= @task_list.name %>
+          </h2>
+          <% @task_list.tasks.each do |task| %>
+            <div class="row">
+              <div class="form-inputs task-form">
+                <div class="twelve columns">
+                  <%= text_field_tag 'task[description]', task.description, class: set_class_for_attr_completed(task), disabled: true %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</main>

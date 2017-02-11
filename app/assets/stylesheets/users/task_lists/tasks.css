@@ -22,3 +22,7 @@
 .line-through {
   text-decoration: line-through;
 }
+
+.icon.trash {
+  color: #550000;
+}

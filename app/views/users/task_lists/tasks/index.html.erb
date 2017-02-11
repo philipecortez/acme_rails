@@ -1,10 +1,14 @@
 <main class="container">
+  <div class="app-logo">
+    <h1><%=link_to "Acme", root_path, class: 'not-change-color' %></h1>
+  </div>
   <div class="row">
     <div class="twelve columns">
       <div class="list-tasks">
-          <h1>
+          <%= link_to 'Back', user_task_lists_path(current_user.id), class: 'back-icon u-pull-right' %>
+          <h2>
             <%= @task_list.name %>
-          </h1>
+          </h2>
           <%= simple_form_for(@task, url: user_task_list_tasks_path(current_user, @task_list), remote: true) do |f| %> 
             <%= f.error_notification %>
             <div class="row">
@@ -20,6 +24,8 @@
           <% @tasks.each do |task| %>
             <%= render partial: 'task', locals: { task: task } %>
           <% end %>
+            <p>You can edit a existent task by clicking in the text editing it and then press enter to save</p>
+            <p>double click in the task to mark it as completed</p>
       </div>
     </div>
   </div>
