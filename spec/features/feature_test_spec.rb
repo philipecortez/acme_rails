@@ -13,7 +13,9 @@ describe "create a task list and add task to it", type: :feature do
 
     visit user_task_lists_path(@user)
     
-    click_link 'Create One!'
+    page.find(".button").trigger("click")
+    
+    print page.html
     within(".simple_form") do
       fill_in 'Name', with: 'tarefa 1'
       click_button 'Create'

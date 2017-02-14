@@ -52,7 +52,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
-  gem 'capybara-webkit'
+  gem 'poltergeist'
 
 end
 
